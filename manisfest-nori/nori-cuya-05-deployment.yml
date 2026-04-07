@@ -1,0 +1,23 @@
+# kubectl apply -f nori-cuya-05-deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nori-cuya-05--deployment
+  namespace: nori-cuya-05-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nori-cuya-05-deployment        # Debe coincidir con las etiquetas del Service
+  template:
+    metadata:
+      labels:
+        app: nori-cuya-05-deployment      # Debe coincidir con las etiquetas del Service
+    spec:
+      containers:
+      - name: nori-cuya-05-container
+        image: cuyamerlo/nori-webflux-nosql:latest   # Reemplaza con tu imagen Docker Hub
+        imagePullPolicy: IfNotPresent        # Evitar traer siempre la última versión si hay una actual
+        #envFrom:
+        #- secretRef:
+        #    name: nori-cuya-05-secret  # Esto cargará todos los valores como variables de entorno

@@ -1,0 +1,6 @@
+# kubectl create namespace nori-cuya-05-namespace (COMANDO)
+# kubectl apply -f nori-cuya-05-namespace.yml (yml)
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nori-cuya-05-namespace
